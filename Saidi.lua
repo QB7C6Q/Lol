@@ -9142,7 +9142,7 @@ local T = '*🤍 ▸ 𝑫𝑬𝑽 𝑩𝑶𝑻 -›\n〈↜🤍 ▸ 𝑵𝑨𝑴
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𝐂𝐡: 𝐒𝐨𝐮𝐫𝐜𝐞', url = "https://t.me/AKJA0"}
+{text = ban.first_name, url = 't.me/mezo_source'}, 
 },
 }
 local msgg = msg_id/2097152/0.5
