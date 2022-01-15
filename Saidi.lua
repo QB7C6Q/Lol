@@ -9138,11 +9138,11 @@ else
 local photo = LuaTele.getUserProfilePhotos(Sudo_Id)
 if photo.total_count > 0 then
 local ban = LuaTele.getUser(Sudo_Id)
-local T = '*🤍 ▸ 𝑫𝑬𝑽 𝑩𝑶𝑻 -›\n〈↜🤍 ▸ 𝑵𝑨𝑴𝑬↝〉 *['..ban.first_name..'](tg://user?id='..ban.id..')*\n*'
+local T = '*🤍 ▸ 𝑫𝑬𝑽 𝑩𝑶𝑻 -› *['..ban.first_name..'](tg://user?id='..ban.id..')*\n*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = ban.first_name, url = 't.me/mezo_source'}, 
+{text = ban.first_name, url = 't.me/Saidi_source'}, 
 },
 }
 local msgg = msg_id/2097152/0.5
@@ -9151,6 +9151,35 @@ else
 return LuaTele.sendText(msg_chat_id,msg_id,'\n* ◉ مطور البوت : {*['..ban.first_name..'](tg://user?id='..ban.id..')*}*',"md",true)  
 end
 end
+end
+if text and text:match("^قول (.*)$")then
+local m = text:match("^قول (.*)$")
+if Redis:get(Saidi.."Status:kool"..msg.chat_id) then
+return LuaTele.sendText(msg_chat_id,msg_id,m,"md",true) 
+end
+end
+if text == "صورتي" then
+if Redis:get(Saidi.."Status:photo"..msg.chat_id) then
+local photo = LuaTele.getUserProfilePhotos(msg.sender.user_id)
+if photo.total_count > 0 then
+return LuaTele.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,"*عدد صورك هو "..photo.total_count.." صوره*", "md")
+else
+return LuaTele.sendText(msg_chat_id,msg_id,'*● لا توجد صوره ف حسابك*',"md",true) 
+end
+end
+end
+if text == "غنيلي" then
+local t = "اليك اغنيه عشوائيه من البوت"
+Num = math.random(8,83)
+Mhm = math.random(108,143)
+Mhhm = math.random(166,179)
+Mmhm = math.random(198,216)
+Mhmm = math.random(257,626)
+local Texting = {Num,Mhm,Mhhm,Mmhm,Mhmm}
+local Rrr = Texting[math.random(#Texting)]
+local m = "https://t.me/mmsst13/"..Rrr..""
+local rep = msg.id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token.."/sendaudio?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&audio="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
 end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == 'source' then
 photo = "http://t.me/AKJA0"
@@ -9175,7 +9204,17 @@ keyboard.inline_keyboard = {
 }
 local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.."&caption=".. URL.escape(T).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-
+elseif text == 'جابوا' or text == 'جابو' or text == 'المبرمح جابوا' then
+photo = "https://t.me/J_A_B_W_A"
+local Name = '𝑾𝑬𝑳𝑪𝑶𝑴𝑬 𝑻𝑶 𝒀𝑶𝒁𝑨𝑹𝑻 𝑱𝑨𝑩𝑾𝑨 '
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '𓄼• 𝗝ٰٖ𝗔ٰٖ𝗕ٰٖ𝗪ٰٖ𝗔ٰٖ ➪🇳🇱•𓄹', url = "https://t.me/J_A_B_W_A"}
+},
+}
+local msgg = msg_id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.."&caption=".. URL.escape(Name).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 elseif text == 'الاوامر' then
 if not msg.Addictive then
 return LuaTele.sendText(msg_chat_id,msg_id,'\n* ⌯ هاذا الامر يخص 「 '..Controller_Num(7)..' 」* ',"md",true)  
