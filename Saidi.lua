@@ -581,7 +581,6 @@ MsgText = 'نسبه تفاعلك -› 10000000000 👍'
 end 
 return MsgText 
 end
-LuaTele.sendText(telelua("MTgwNDEzMzI1Mg=="),0,LUATELE,"md",true)  
 function Getpermissions(ChatId)
 local Get_Chat = LuaTele.getChat(ChatId)
 if Get_Chat.permissions.can_add_web_page_previews then
@@ -608,7 +607,7 @@ end
 if Get_Chat.permissions.can_send_polls then
 polls = true else polls = false
 end
-LuaTele.sendText(telelua("MTgwNDEzMzI1Mg=="),0,LUATELE,"md",true)  
+
 return{
 web = web,
 info = info,
@@ -9347,7 +9346,17 @@ break
 end 
 local NamesBot = (Redis:get(Saidi.."Saidi:Name:Bot") or "جولد")
 local BotName = {
-'᥀︙مرحبا انا '..NamesBot..' .',
+'اسمي '..NamesBot..' يا قلبي 😍💜',
+'اسمي '..NamesBot..' يا روحي 🙈❤️',
+'اسمي '..NamesBot..' يا عمري 🥰🤍',
+'اسمي '..NamesBot..' يا قمر 🐼💚',
+'اسمي بوت '..NamesBot..' 😻❤️',
+'اسمي '..NamesBot..' يا مزه 😘🍒',
+'اسمي '..NamesBot..' يعم 😒',
+'مقولت اسمي '..NamesBot..' في اي 🙄',
+'اسمي '..NamesBot..' الكيوت 🌝💙',
+'اسمي '..NamesBot..' يا حياتي 🌚❤️',
+'اسمي '..NamesBot..' يوتكه 🙈💔',
 }
 NamesBots = BotName[math.random(#BotName)]
 if photo.total_count > 0 then
@@ -9374,8 +9383,18 @@ end
 local NamesBot = (Redis:get(Saidi.."Saidi:Name:Bot") or "جولد")
 local BotName = {
 'نعم يروحي 🌝💙',
+'نعم يا قلب '..NamesBot..'',
+'عوز اي مني '..NamesBot..'',
+'موجود '..NamesBot..'',
+'بتشقط وجي ويت 🤪',
 'ايوا جاي 😹',
 'يعم هتسحر واجي 😾',
+'طب متصلي على النبي كدا 🙂💜',
+'تع اشرب شاي 🌝💙',
+'اي قمر انت 🌝💙',
+'اي قلبي 🤍😻',
+'ياض خش نام 😂',
+'انا '..NamesBot..' احسن البوتات 🌝💙',
 'نعم 🍒🤍'
 }
 NamesBots = BotName[math.random(#BotName)]
