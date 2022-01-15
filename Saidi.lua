@@ -9135,12 +9135,21 @@ local TextingDevSaidi = Redis:get(Saidi..'Saidi:Texting:DevSaidi')
 if TextingDevSaidi then 
 return LuaTele.sendText(msg_chat_id,msg_id,TextingDevSaidi,"md",true)  
 else
-local UserInfo = LuaTele.getUser(Sudo_Id)
-for Name_User in string.gmatch(UserInfo.first_name, "[^%s]+" ) do
-UserInfo.first_name = Name_User
-break
-end 
-return LuaTele.sendText(msg_chat_id,msg_id,'\n* ⌯ مطور البوت : {*['..UserInfo.first_name..'](tg://user?id='..UserInfo.id..')*}*',"md",true)  
+local photo = LuaTele.getUserProfilePhotos(Sudo_Id)
+if photo.total_count > 0 then
+local ban = LuaTele.getUser(Sudo_Id)
+local T = '*🤍 ▸ 𝑫𝑬𝑽 𝑩𝑶𝑻 -›\n〈↜🤍 ▸ 𝑵𝑨𝑴𝑬↝〉 *['..ban.first_name..'](tg://user?id='..ban.id..')*\n*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '𝐂𝐡: 𝐒𝐨𝐮𝐫𝐜𝐞', url = "https://t.me/AKJA0"}
+},
+}
+local msgg = msg_id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id.."&caption=".. URL.escape(T).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+else
+return LuaTele.sendText(msg_chat_id,msg_id,'\n* ◉ مطور البوت : {*['..ban.first_name..'](tg://user?id='..ban.id..')*}*',"md",true)  
+end
 end
 end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == 'source' then
