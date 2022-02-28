@@ -1,8 +1,4 @@
---[[
 
-
-
---]]
 URL     = require("./libs/url")
 JSON    = require("./libs/dkjson")
 serpent = require("libs/serpent")
@@ -6784,7 +6780,7 @@ if text == "عدد الميديا" then
 local list = Redis:smembers(Various.."cleaner"..msg_chat_id)
 return LuaTele.sendText(msg_chat_id,msg_id,"عدد الميديا هو "..#list.."","md",true)
 end
-if Redis:get(Saidi.."zhrfa"..msg.sender.user_id) == "sendzh" then
+if Redis:get(Various.."zhrfa"..msg.sender.user_id) == "sendzh" then
 zh = https.request('https://apiabs.ml/zrf.php?abs='..URL.escape(text)..'')
 zx = JSON.decode(zh)
 t = "\n* ○ قائمه الزخرفه *\n*⩹━━━━○Various○━━━━⩺*\n* أضغط علي الاسم لا يتم النسخ ○ *\n"
@@ -6794,11 +6790,11 @@ i = i + 1
 t = t..i.."- `"..v.."` \n"
 end
 LuaTele.sendText(msg_chat_id,msg_id,t,"md",true) 
-Redis:del(Saidi.."zhrfa"..msg.sender.user_id) 
+Redis:del(Various.."zhrfa"..msg.sender.user_id) 
 end
 if text == "زخرفه" or text == "زخرفة" then
 LuaTele.sendText(msg_chat_id,msg_id,"* ✧ ارسل الكلمه لزخرفتها عربي او انجلش*","md",true) 
-Redis:set(Saidi.."zhrfa"..msg.sender.user_id,"sendzh") 
+Redis:set(Various.."zhrfa"..msg.sender.user_id,"sendzh") 
 end
 if text and text:match("^زخرفه (.*)$") then
 local TextZhrfa = text:match("^زخرفه (.*)$")
@@ -6812,7 +6808,7 @@ t = t..i.."- `"..v.."` \n"
 end
 LuaTele.sendText(msg_chat_id,msg_id,t,"md",true) 
 end 
-if Redis:get(Saidi.."brgi"..msg.sender.user_id) == "sendbr" then
+if Redis:get(Various.."brgi"..msg.sender.user_id) == "sendbr" then
 gk = https.request('https://apiabs.ml/brg.php?brg='..URL.escape(text)..'')
 br = JSON.decode(gk)
 i = 0
@@ -6821,11 +6817,11 @@ i = i + 1
 t = v.."\n"
 end
 LuaTele.sendText(msg_chat_id,msg_id,t,"md",true) 
-Redis:del(Saidi.."brgi"..msg.sender.user_id) 
+Redis:del(Various.."brgi"..msg.sender.user_id) 
 end
 if text == "الابراج" or text == "برجي" then
 LuaTele.sendText(msg_chat_id,msg_id,"* ✧ ارسل البرج الان لعرض التوقعات*","md",true) 
-Redis:set(Saidi.."brgi"..msg.sender.user_id,"sendbr") 
+Redis:set(Various.."brgi"..msg.sender.user_id,"sendbr") 
 end
 if text and text:match("^برج (.*)$") then
 local Textbrj = text:match("^برج (.*)$")
