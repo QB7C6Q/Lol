@@ -6784,30 +6784,70 @@ if text == "عدد الميديا" then
 local list = Redis:smembers(Various.."cleaner"..msg_chat_id)
 return LuaTele.sendText(msg_chat_id,msg_id,"عدد الميديا هو "..#list.."","md",true)
 end
-if text == "زخرفه" or text == "زخرف"  then
-if msg.can_be_deleted_for_all_users == false then
-return LuaTele.sendText(msg_chat_id,msg_id,"\n* ○ عذرآ البوت ليس ادمن في الجروب يرجى ترقيته وتفعيل الصلاحيات له *","md",true)  
+if Redis:get(Saidi.."zhrfa"..msg.sender.user_id) == "sendzh" then
+zh = https.request('https://apiabs.ml/zrf.php?abs='..URL.escape(text)..'')
+zx = JSON.decode(zh)
+t = "\n* ○ قائمه الزخرفه *\n*⩹━━━━○Various○━━━━⩺*\n* أضغط علي الاسم لا يتم النسخ ○ *\n"
+i = 0
+for k,v in pairs(zx.ok) do
+i = i + 1
+t = t..i.."- `"..v.."` \n"
 end
-local reply_markup = LuaTele.replyMarkup{
-type = 'inline',
-data = {
-{
-{text = '○ زخرفه ',  data ='/leftz@'},
-},
-}
-}
-return LuaTele.sendText(msg.chat_id,msg.id,'*\nاليك القوائم الزخرف  اضفط وزخرف*',"md",false, false, false, false, reply_markup)
+LuaTele.sendText(msg_chat_id,msg_id,t,"md",true) 
+Redis:del(Saidi.."zhrfa"..msg.sender.user_id) 
 end
+if text == "زخرفه" or text == "زخرفة" then
+LuaTele.sendText(msg_chat_id,msg_id,"* ✧ ارسل الكلمه لزخرفتها عربي او انجلش*","md",true) 
+Redis:set(Saidi.."zhrfa"..msg.sender.user_id,"sendzh") 
+end
+if text and text:match("^زخرفه (.*)$") then
+local TextZhrfa = text:match("^زخرفه (.*)$")
+zh = https.request('https://apiabs.ml/zrf.php?abs='..URL.escape(TextZhrfa)..'')
+zx = JSON.decode(zh)
+t = "\n* ○ قائمه الزخرفه *\n*⩹━━━━○Various○━━━━⩺*\n* أضغط علي الاسم لا يتم النسخ ○ *\n"
+i = 0
+for k,v in pairs(zx.ok) do
+i = i + 1
+t = t..i.."- `"..v.."` \n"
+end
+LuaTele.sendText(msg_chat_id,msg_id,t,"md",true) 
+end 
+if Redis:get(Saidi.."brgi"..msg.sender.user_id) == "sendbr" then
+gk = https.request('https://apiabs.ml/brg.php?brg='..URL.escape(text)..'')
+br = JSON.decode(gk)
+i = 0
+for k,v in pairs(br.ok) do
+i = i + 1
+t = v.."\n"
+end
+LuaTele.sendText(msg_chat_id,msg_id,t,"md",true) 
+Redis:del(Saidi.."brgi"..msg.sender.user_id) 
+end
+if text == "الابراج" or text == "برجي" then
+LuaTele.sendText(msg_chat_id,msg_id,"* ✧ ارسل البرج الان لعرض التوقعات*","md",true) 
+Redis:set(Saidi.."brgi"..msg.sender.user_id,"sendbr") 
+end
+if text and text:match("^برج (.*)$") then
+local Textbrj = text:match("^برج (.*)$")
+gk = https.request('https://apiabs.ml/brg.php?brg='..URL.escape(Textbrj)..'')
+br = JSON.decode(gk)
+i = 0
+for k,v in pairs(br.ok) do
+i = i + 1
+t = v.."\n"
+end
+LuaTele.sendText(msg_chat_id,msg_id,t,"md",true) 
+end 
 if text and text:match("^معني (.*)$") then
 local TextName = text:match("^معني (.*)$")
-as = http.request('https://apiabs.ml/Mean.php?Abs='..URL.escape(TextName)..'')
+as = http.request('http://167.71.14.2/Mean.php?Name='..URL.escape(TextName)..'')
 mn = JSON.decode(as)
 k = mn.meaning
 LuaTele.sendText(msg_chat_id,msg_id,k,"md",true) 
 end
 if text and text:match("^احسب (.*)$") then
 local Textage = text:match("^احسب (.*)$")
-ge = https.request('https://apiabs.ml/age.php?age='..URL.escape(Textage)..'')
+ge = https.request('https://boyka-api.ml/Calculateage.php?age='..URL.escape(Textage)..'')
 ag = JSON.decode(ge)
 i = 0
 for k,v in pairs(ag.ok) do
@@ -6815,18 +6855,6 @@ i = i + 1
 t = v.."\n"
 end
 LuaTele.sendText(msg_chat_id,msg_id,t,"md",true) 
-end 
-if Redis:get(Various.."zhrfa"..msg.sender.user_id) == "sendzh" then
-zh = https.request('https://apiabs.ml/zrf.php?abs='..URL.escape(text)..'')
-zx = JSON.decode(zh)
-t = "\n ○ قائمه الزخرفه \n⩹━━━━○Various○━━━━⩺\n"
-i = 0
-for k,v in pairs(zx.ok) do
-i = i + 1
-t = t..i.."- `"..v.."` \n"
-end
-LuaTele.sendText(msg_chat_id,msg_id,t,"md",true) 
-Redis:del(Various.."zhrfa"..msg.sender.user_id) 
 end
 if text == "جمالي" or text == 'نسبه جمالي' then
 if Redis:get(Various.."Status:gamle"..msg.chat_id) then
@@ -6874,29 +6902,7 @@ local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id.."&caption=".. URL.escape(Jabwa_ns).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(data))
 end
 end
-end
-
-if text == "تست" then
-if Redis:get(Various.."Status:photo"..msg.chat_id) then
-local photo = LuaTele.getUserProfilePhotos(msg.sender.user_id)
-local Jabwa = LuaTele.getUser(msg.sender.user_id)
-local Jabwa_ns = '𝚑𝚎𝚛𝚎 𝚊𝚛𝚎 𝚢𝚘𝚞𝚛 𝚙𝚑𝚘𝚝𝚘𝚜'
-if photo.total_count > 0 then
-data = {} 
-data.inline_keyboard = {
-{
-{text = '- اخفاء الامر ', callback_data = msg.sender.user_id..'/Jabwa88'}, 
-},
-{
-{text = '▴ صورتك القادمه▾', callback_data= msg.sender.user_id..'/Jabwa89'}, 
-},
-}
-local msgg = msg_id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id.."&caption=".. URL.escape(Jabwa_ns).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(data))
-end
-end
-end
-
+end 
 
 if text == 'كشف البوتات' then
 if not msg.Managers then
