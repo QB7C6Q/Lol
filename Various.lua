@@ -10099,17 +10099,17 @@ return LuaTele.sendText(msg_chat_id,msg_id,"* ○ تم مسح {"..x.."} من ا�
 end
 if TextMsg == 'البوتات' then
 if not msg.Managers then
-return LuaTele.sendText(msg_chat_id,msg_id,'\n* ○ هاذا الامر يخص { '..Controller_Num(6)..' }* ',"md",true)  
+return LuaTele.sendText(msg_chat_id,msg_id,'\n*🧞‍♂️ هاذا الامر يخص { '..Controller_Num(6)..' }* ',"md",true)  
 end
 if ChannelJoin(msg) == false then
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/'..Redis:get(Various..'Channel:Join')}, },}}
-return LuaTele.sendText(msg.chat_id,msg.id,'*\n ○ عليك الاشتراك في قناة البوت لاستخذام الاوامر*',"md",false, false, false, false, reply_markup)
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/'}, },}}
+return LuaTele.sendText(msg.chat_id,msg.id,'*\n🧞‍♂️ عليك الاشتراك في قناة البوت لاستخذام الاوامر*',"md",false, false, false, false, reply_markup)
 end
 if msg.can_be_deleted_for_all_users == false then
-return LuaTele.sendText(msg_chat_id,msg_id,"\n* ○ عذرآ البوت ليس ادمن في الجروب يرجى ترقيته وتفعيل الصلاحيات له *","md",true)  
+return LuaTele.sendText(msg_chat_id,msg_id,"\n*🧞‍♂️ عذرآ البوت ليس ادمن في المجموعه يرجى ترقيته وتفعيل الصلاحيات له *","md",true)  
 end
 if GetInfoBot(msg).JabwaUser == false then
-return LuaTele.sendText(msg_chat_id,msg_id,'\n* ○ البوت ليس لديه صلاحيه حظر المستخدمين* ',"md",true)  
+return LuaTele.sendText(msg_chat_id,msg_id,'\n*🧞‍♂️ البوت ليس لديه صلاحيه حظر المستخدمين* ',"md",true)  
 end
 local Info_Members = LuaTele.getSupergroupMembers(msg_chat_id, "Bots", "*", 0, 200)
 local List_Members = Info_Members.members
@@ -10120,7 +10120,7 @@ if Jabwa_Bots.luatele == "ok" then
 x = x + 1
 end
 end
-return LuaTele.sendText(msg_chat_id,msg_id,"\n* ○ عدد البوتات الموجوده : "..#List_Members.."\n ○ تم طرد ( "..x.." ) بوت من الجروب *","md",true)  
+return LuaTele.sendText(msg_chat_id,msg_id,"\n*🧞‍♂️ عدد البوتات الموجوده : "..#List_Members.."\n🧞‍♂️ تم طرد ( "..x.." ) بوت من المجموعه *","md",true)  
 end
 if TextMsg == 'المطرودين' then
 if not msg.Managers then
