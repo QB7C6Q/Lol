@@ -3045,9 +3045,9 @@ return LuaTele.sendText(msg_chat_id,msg_id,
 '*',"md",true) 
 end
 end
-text == 'رتبتي' then
+if text == 'رتبتي' then
 local Jabwa = LuaTele.getUser(msg.sender.user_id)
-local news = '◐ رتبتك هي : '..msg.Name_Controller
+local news = '○ رتبتك هي : '..msg.Name_Controller
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {
 {{text =news,url = "https://t.me/"..Jabwa.username..""}, },}}
 return LuaTele.sendText(msg_chat_id, msg_id, news, 'md', false, false, false, false, reply_markup)
@@ -15649,7 +15649,7 @@ elseif Text and Text:match('(%d+)/unlock_pin') then
 local UserId = Text:match('(%d+)/unlock_pin')
 if tonumber(IdUser) == tonumber(UserId) then
 Redis:del(Various.."lockpin"..ChatId) 
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '- رجوع 🔙', data =UserId..'/'.. 'NoNextSeting'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '- رجوع ??', data =UserId..'/'.. 'NoNextSeting'},},}}
 LuaTele.editMessageText(ChatId,Msg_id,Reply_Status(IdUser," ○ تم فتح التثبيت").unLock, 'md', true, false, reply_markup)
 end
 elseif Text and Text:match('(%d+)/unlock_tgservir') then
