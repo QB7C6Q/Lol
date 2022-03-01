@@ -3045,20 +3045,12 @@ return LuaTele.sendText(msg_chat_id,msg_id,
 '*',"md",true) 
 end
 end
-if text == 'رتبتي' then
+text == 'رتبتي' then
 local Jabwa = LuaTele.getUser(msg.sender.user_id)
-local photo = LuaTele.getUserProfilePhotos(msg.sender.user_id)
-local news = 'رتبتك هي : '..msg.Name_Controller
-if photo.total_count > 0 then
-data = {} 
-data.inline_keyboard = {
-{
-{text =news,url = "https://t.me/"..Jabwa.username..""}, 
-},
-}
-local msgg = msg_id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id.."&photo=".. URL.escape(news).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(data))
-end
+local news = '◐ رتبتك هي : '..msg.Name_Controller
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {
+{{text =news,url = "https://t.me/"..Jabwa.username..""}, },}}
+return LuaTele.sendText(msg_chat_id, msg_id, news, 'md', false, false, false, false, reply_markup)
 end
 if text == 'اسمي' then
 local Jabwa = LuaTele.getUser(msg.sender.user_id)
