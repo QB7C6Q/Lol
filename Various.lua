@@ -10115,7 +10115,7 @@ local Info_Members = LuaTele.getSupergroupMembers(msg_chat_id, "Bots", "*", 0, 2
 local List_Members = Info_Members.members
 x = 0
 for k, v in pairs(List_Members) do
-local Jabwa_Bots = LuaTele.setChatMemberStatus(msg.chat_id,v.member_id.user_id,'Jabwaned',0)
+local Jabwa_Bots = LuaTele.setChatMemberStatus(msg.chat_id,v.member_id.user_id,'banned',0)
 if Jabwa_Bots.luatele == "ok" then
 x = x + 1
 end
