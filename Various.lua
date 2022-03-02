@@ -185,7 +185,7 @@ Status = 'المبرمج فارس'
 elseif tonumber(UserId) == 1376393622 then
 Status = 'المطور يوسف'
 elseif tonumber(UserId) == 1876923066  then
-Status = 'المطور مودي'
+Status = 'المبرمج مودي'
 elseif UserId == Sudo_Id then  
 Status = 'المطور الاساسي'
 elseif UserId == Various then
@@ -987,7 +987,7 @@ elseif tonumber(msg.sender.user_id) == 1376393622 then
 msg.Name_Controller = 'المطور يوسف'
 msg.The_Controller = 1
 elseif tonumber(msg.sender.user_id) == 1876923066 then
-msg.Name_Controller = 'المطور مودي'
+msg.Name_Controller = 'المبرمج مودي'
 msg.The_Controller = 1
 elseif The_ControllerAll(msg.sender.user_id) == true then  
 msg.The_Controller = 1
@@ -5703,7 +5703,7 @@ if UserId == "1376393622" then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ○ عذرآ لا تستطيع استخدام الامر على المطور يوسف *","md",true)  
 end
 if UserId == "1876923066" then
-return LuaTele.sendText(msg_chat_id,msg_id,"\n* ○ عذرآ لا تستطيع استخدام الامر على المطور مودي *","md",true)  
+return LuaTele.sendText(msg_chat_id,msg_id,"\n* ○ عذرآ لا تستطيع استخدام الامر على المبرمج مودي *","md",true)  
 end
 if Redis:sismember(Various.."JabwaAll:Groups",UserId) then
 return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(UserId," ○ تم حظره عام من المجموعات مسبقا ").Reply,"md",true)  
@@ -5755,7 +5755,7 @@ if UserId == "1376393622" then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ○ عذرآ لا تستطيع استخدام الامر على المطور يوسف *","md",true)  
 end
 if UserId == "1876923066" then
-return LuaTele.sendText(msg_chat_id,msg_id,"\n* ○ عذرآ لا تستطيع استخدام الامر على المطور مودي *","md",true)  
+return LuaTele.sendText(msg_chat_id,msg_id,"\n* ○ عذرآ لا تستطيع استخدام الامر على المبرمج مودي *","md",true)  
 end
 local Jabwa = LuaTele.getUser(UserId)
 local bain = LuaTele.getUser(msg.sender.user_id)
@@ -10683,7 +10683,7 @@ local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.."&caption=".. URL.escape(Name).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 elseif text == 'فارس' or text == 'المبرمج فارس' or text == '〘 مبرمج السورس 〙' or text == 'مبرمج السورس' then
 photo = "https://t.me/F010x"
-local Name = 'المبرمج فارس اتبع الازرار لتواصل معاه ☑️. '
+local Name = '  ˛ ł᥆ ᥴ᥆ꪀłᥲ️ᥴł ժᥱ᥎ᥱᥣ᥆ρᥱɾ fᥲ️ɾᥱ᥉᥉ , ᥴᥣᎥᥴk ᥆ꪀ łhᥱ Յᴜłł᥆ꪀ . '
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -10693,19 +10693,19 @@ keyboard.inline_keyboard = {
 local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.."&caption=".. URL.escape(Name).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 elseif text == 'يوسف' or text == 'جو' or text == 'المطور يوسف' then
-photo = "https://t.me/UU_JOO"
-local Name = 'المطور يوسف اتبع الازرار لتواصل معاه ☑️. '
+photo = "https://t.me/G_X_L"
+local Name = ' ˛ ł᥆ ᥴ᥆ꪀłᥲ️ᥴł ժᥱ᥎ᥱᥣ᥆ρᥱɾ ꪗ᥆ᴜ᥉᥉ᥱf , ᥴᥣᎥᥴk ᥆ꪀ łhᥱ Յᴜłł᥆ꪀ . '
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '˛ ُꪗ᥆ᴜِ᥉ِ᥉ْᥱf .', url = "https://t.me/UU_JOO"}
+{text = '˛ ُꪗ᥆ᴜِ᥉ِ᥉ْᥱf .', url = "https://t.me/G_X_L"}
 },
 }
 local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.."&caption=".. URL.escape(Name).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-elseif text == 'مودي' or text == 'المطور مودي' or text == 'المبرمج مودي' then
+elseif text == 'مودي' or text == 'المبرمج مودي' or text == 'المبرمج مودي' then
 photo = "https://t.me/uu_mo"
-local Name = ' المطور مودي اتبع الازرار لتواصل معاه ☑️. '
+local Name = '  ˛ ł᥆ ᥴ᥆ꪀłᥲ️ᥴł ժᥱ᥎ᥱᥣ᥆ρᥱɾ ᗰ᥆᥆ժꪗ , ᥴᥣᎥᥴk ᥆ꪀ łhᥱ Յᴜłł᥆ꪀ . '
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -12106,7 +12106,7 @@ if photo.total_count > 0 then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '▴ فارس ▾', url = 't.me/F010x'},{text = '▴ يوسف ▾', url = 't.me/UU_JOO'}, 
+{text = '▴ فارس ▾', url = 't.me/F010x'},{text = '▴ يوسف ▾', url = 't.me/G_X_L'}, 
 },
 {
 {text = '▴ مودي ▾', url = 't.me/uu_mo'},{text = '▴ جروب الدعم ▾', url = 't.me/AA66Q'}, 
@@ -12126,7 +12126,7 @@ local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '▴ فارس ▾', url = 't.me/F010x'},{text = '▴ يوسف ▾', url = 't.me/UU_JOO'}, 
+{text = '▴ فارس ▾', url = 't.me/F010x'},{text = '▴ يوسف ▾', url = 't.me/G_X_L'}, 
 },
 {
 {text = '▴ مودي ▾', url = 't.me/uu_mo'},{text = '▴ جروب الدعم ▾', url = 't.me/AA66Q'}, 
