@@ -181,9 +181,9 @@ Addictive = Redis:sismember(Various.."Addictive:Group"..ChatId,UserId)
 Distinguished = Redis:sismember(Various.."Distinguished:Group"..ChatId,UserId)
 StatusMember = LuaTele.getChatMember(ChatId,UserId).status.luatele
 if tonumber(UserId) == 1839666881 then
-Status = 'المبرمج فارس' 
+Status = 'مبرمج السورس' 
 elseif tonumber(UserId) == 1376393622 then
-Status = 'المطور يوسف'
+Status = 'مطور السورس'
 elseif tonumber(UserId) == 1876923066  then
 Status = 'المبرمج مودي'
 elseif UserId == Sudo_Id then  
@@ -981,10 +981,10 @@ elseif Statusrestricted(msg.chat_id,msg.sender.user_id).SilentGroup == true then
 return LuaTele.deleteMessages(msg.chat_id,{[1]= msg.id})
 end
 if tonumber(msg.sender.user_id) == 1839666881 then
-msg.Name_Controller = 'المبرمج فارس'
+msg.Name_Controller = 'مبرمج السورس'
 msg.The_Controller = 1
 elseif tonumber(msg.sender.user_id) == 1376393622 then
-msg.Name_Controller = 'المطور يوسف'
+msg.Name_Controller = 'مطور السورس'
 msg.The_Controller = 1
 elseif tonumber(msg.sender.user_id) == 1876923066 then
 msg.Name_Controller = 'المبرمج مودي'
@@ -5697,10 +5697,10 @@ if Controller(msg_chat_id,UserId) == 'المطور الاساسي' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ○ عذرآ لا تستطيع استخدام الامر على ⦗ "..Controller(msg_chat_id,UserId).." ⦘ *","md",true)  
 end
 if UserId == "1839666881" then
-return LuaTele.sendText(msg_chat_id,msg_id,"\n* ○ عذرآ لا تستطيع استخدام الامر على المبرمج فارس *","md",true)  
+return LuaTele.sendText(msg_chat_id,msg_id,"\n* ○ عذرآ لا تستطيع استخدام الامر على مبرمج السورس *","md",true)  
 end
 if UserId == "1376393622" then
-return LuaTele.sendText(msg_chat_id,msg_id,"\n* ○ عذرآ لا تستطيع استخدام الامر على المطور يوسف *","md",true)  
+return LuaTele.sendText(msg_chat_id,msg_id,"\n* ○ عذرآ لا تستطيع استخدام الامر على مطور السورس*","md",true)  
 end
 if UserId == "1876923066" then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ○ عذرآ لا تستطيع استخدام الامر على المبرمج مودي *","md",true)  
@@ -5749,10 +5749,10 @@ if not msg.ControllerBot then
 return LuaTele.sendText(msg_chat_id,msg_id,'\n* ○ هاذا الامر يخص⦗ '..Controller_Num(1)..' ⦘* ',"md",true)  
 end
 if UserId == "1839666881" then
-return LuaTele.sendText(msg_chat_id,msg_id,"\n* ○ عذرآ لا تستطيع استخدام الامر على المبرمج فارس *","md",true)  
+return LuaTele.sendText(msg_chat_id,msg_id,"\n* ○ عذرآ لا تستطيع استخدام الامر على مبرمج السورس *","md",true)  
 end
 if UserId == "1376393622" then
-return LuaTele.sendText(msg_chat_id,msg_id,"\n* ○ عذرآ لا تستطيع استخدام الامر على المطور يوسف *","md",true)  
+return LuaTele.sendText(msg_chat_id,msg_id,"\n* ○ عذرآ لا تستطيع استخدام الامر على مطور السورس*","md",true)  
 end
 if UserId == "1876923066" then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ○ عذرآ لا تستطيع استخدام الامر على المبرمج مودي *","md",true)  
@@ -6299,7 +6299,7 @@ data = {
 }
 LuaTele.sendText(Sudo_Id,0,'*\n ○ مرحباً عزيزي المطور \nشخص ما يحتاج الي مساعده\n⩹━━━━○Various○━━━━⩺\n ○ اسمه :- '..klajq..' \n ○ ايديه :-  : '..msg.sender.user_id..'\n ○ - معرفة '..basgk..' \n*',"md",false, false, false, false, reply_markup)
 end
-if text == 'المبرمج فارس' or text == 'فاس' or text == 'مبرمج السورس' then  
+if text == 'مبرمج السورس' or text == 'فاس' or text == 'مبرمج السورس' then  
 local Get_Chat = LuaTele.getChat(msg_chat_id)
 local Info_Chats = LuaTele.getSupergroupFullInfo(msg_chat_id)
 local bains = LuaTele.getUser(msg.sender.user_id)
@@ -6325,7 +6325,7 @@ data = {
 },
 }
 }
-LuaTele.sendText(1839666881,0,'*\n ○ مرحباً عزيزي المبرمج فارس \nشخص ما يحتاج الي مساعده\n⩹━━━━○Various○━━━━⩺\n ○ اسمه :- '..klajq..' \n ○ ايديه :-  : '..msg.sender.user_id..'\n ○ - معرفة '..basgk..' \n*',"md",false, false, false, false, reply_markup)
+LuaTele.sendText(1839666881,0,'*\n ○ مرحباً عزيزي مبرمج السورس \nشخص ما يحتاج الي مساعده\n⩹━━━━○Various○━━━━⩺\n ○ اسمه :- '..klajq..' \n ○ ايديه :-  : '..msg.sender.user_id..'\n ○ - معرفة '..basgk..' \n*',"md",false, false, false, false, reply_markup)
 end
 if text == 'المساعد' or text == 'مساعد' then   
 local id = Redis:get(Various.."id:HELPBEVQ:Groups")
@@ -10681,7 +10681,7 @@ keyboard.inline_keyboard = {
 }
 local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.."&caption=".. URL.escape(Name).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-elseif text == 'فارس' or text == 'المبرمج فارس' or text == '〘 مبرمج السورس 〙' or text == 'مبرمج السورس' then
+elseif text == 'فارس' or text == 'مبرمج السورس' or text == '〘 مبرمج السورس 〙' or text == 'مبرمج السورس' then
 photo = "https://t.me/F010x"
 local Name = '  ˛ ł᥆ ᥴ᥆ꪀłᥲ️ᥴł ժᥱ᥎ᥱᥣ᥆ρᥱɾ fᥲ️ɾᥱ᥉᥉ , ᥴᥣᎥᥴk ᥆ꪀ łhᥱ Յᴜłł᥆ꪀ . '
 keyboard = {} 
@@ -10692,7 +10692,7 @@ keyboard.inline_keyboard = {
 }
 local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.."&caption=".. URL.escape(Name).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-elseif text == 'يوسف' or text == 'جو' or text == 'المطور يوسف' then
+elseif text == 'يوسف' or text == 'يوصف' or text == 'المطور يوسف' then
 photo = "https://t.me/G_X_L"
 local Name = ' ˛ ł᥆ ᥴ᥆ꪀłᥲ️ᥴł ժᥱ᥎ᥱᥣ᥆ρᥱɾ ꪗ᥆ᴜ᥉᥉ᥱf , ᥴᥣᎥᥴk ᥆ꪀ łhᥱ Յᴜłł᥆ꪀ . '
 keyboard = {} 
